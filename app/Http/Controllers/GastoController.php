@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use App\Models\MovFinanciero;
+use App\Models\MovFinancieroDet;
+use App\Models\Pago;
 use Illuminate\Http\Request;
 
 class GastoController extends Controller
@@ -13,7 +17,9 @@ class GastoController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Gastos/Index', [
+            'movimientos' =>  MovFinanciero::where('gestion','2018')->get()
+        ]);
     }
 
     /**

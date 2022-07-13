@@ -53,4 +53,4 @@ Route::get('dashboard', [PageController::class,'dashboard'])
 
 
 
-Route::resource('gasto', App\Http\Controllers\GastoController::class);
+Route::resource('gastos', App\Http\Controllers\GastoController::class);

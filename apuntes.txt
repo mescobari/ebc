@@ -6,3 +6,14 @@ Publique el archivo de configuración con php artisan vendor:publish --tag=relie
 Asegúrese de que su base de datos esté configurada correctamente en los archivos config/database.php y .env.
 Y finalmente emita el comando: php artisan code:models
 Este paquete esc
+
+
+
+<table>
+                                <tr v-for ="movimiento in movimientos">
+                                    <td class="border px-4 py-2">
+                                        {{ movimiento.resumen}}
+
+                                    </td>
+                                </tr>
+                            </table>
