@@ -1,6 +1,8 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Welcome from '@/Jetstream/Welcome.vue';
+import JetNavLink from '@/Jetstream/NavLink.vue';
+//import { DataTable } from 'v-datatable-light'
 </script>
 
 <template>
@@ -20,10 +22,20 @@ import Welcome from '@/Jetstream/Welcome.vue';
                         <div class="shadow bg-white md:rounded-md p-4">
                             
                             <table>
-                                <tr v-for ="movimiento in movimientos">
+                                <tr v-for ="movimiento in movimientos" >
+                                    <td class="border px-4 py-2">
+                                        {{ movimiento.preventivo}}.{{ movimiento.comprometido}}.{{ movimiento.devengado}}
+                                    </td>
                                     <td class="border px-4 py-2">
                                         {{ movimiento.resumen}}
-
+                                    </td>
+                                    <td class="border px-4 py-2">
+                                        {{ movimiento.liquido_pagable}}
+                                    </td>
+                                     <td class="border px-4 py-2">                                       
+                                        <JetNavLink :href ="route('gastos.show', movimiento.id)" >
+                                            Detalle
+                                        </JetNavLink>
                                     </td>
                                 </tr>
                             </table>
@@ -41,12 +53,11 @@ import Welcome from '@/Jetstream/Welcome.vue';
 <script>
     export default {
         components: {
-            AppLayout,
+            AppLayout, 
          },
          props:{
             movimientos: Array,
-         }
-
-
+         },
+        
     }
 </script>
